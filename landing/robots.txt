@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://contafy.com/sitemap.xml
+
