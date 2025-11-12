@@ -85,7 +85,7 @@ body {
 }
 
 .navbar {
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) 0;
 }
 
 .navbar-content {
@@ -100,7 +100,7 @@ body {
 }
 
 .logo-img {
-    height: 60px;
+    height: 90px;
     width: auto;
     object-fit: contain;
 }
@@ -665,7 +665,7 @@ section {
 
 @media (max-width: 768px) {
     .logo-img {
-        height: 50px;
+        height: 70px;
     }
     
     .menu-toggle {
@@ -749,7 +749,7 @@ section {
     }
     
     .logo-img {
-        height: 45px;
+        height: 60px;
     }
     
     .footer-logo-img {
