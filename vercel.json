@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": "landing",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/landing/$1"
+    },
+    {
+      "source": "/",
+      "destination": "/landing/index.html"
+    }
+  ]
+}
+
