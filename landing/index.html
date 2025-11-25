@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Contafy - Sistema Contable Inteligente para procesamiento automático de documentos DIAN, gestión de empresas y cuentas contables.">
-    <meta name="keywords" content="contabilidad, DIAN, facturas, sistema contable, automatización, Colombia">
+        content="Contafy - Automatiza tu contabilidad en minutos. Procesa documentos DIAN automáticamente, elimina errores y recupera horas de tu día. Prueba gratis hoy.">
+    <meta name="keywords"
+        content="contabilidad, DIAN, facturas, sistema contable, automatización, Colombia, facturación electrónica">
     <meta name="author" content="Contafy">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Contafy - Sistema Contable Inteligente">
+    <meta property="og:title" content="Contafy - Tu Contabilidad Automatizada en Minutos">
     <meta property="og:description"
-        content="Automatiza tu contabilidad con procesamiento de documentos DIAN, gestión de empresas y cuentas contables.">
+        content="Deja de perder horas procesando facturas manualmente. Contafy automatiza tu contabilidad y te devuelve el tiempo que necesitas para hacer crecer tu negocio.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/logoContafy.png">
 
-    <!-- Schema.org -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -32,13 +31,12 @@
     }
     </script>
 
-    <title>Contafy - Sistema Contable Inteligente</title>
+    <title>Contafy - Automatiza tu Contabilidad y Recupera tu Tiempo</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preload" href="css/styles.css" as="style">
 </head>
 
 <body>
-    <!-- Header/Navbar -->
     <header class="header" id="header">
         <nav class="navbar" role="navigation" aria-label="Navegación principal">
             <div class="container">
@@ -52,13 +50,15 @@
                         <span></span>
                     </button>
                     <ul class="nav-menu" id="navMenu">
-                        <li><a href="#caracteristicas" class="nav-link">Características</a></li>
-                        <li><a href="#descripcion" class="nav-link">Descripción</a></li>
                         <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
-                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                        <li><a href="#dolor" class="nav-link">Problemas</a></li>
+                        <li><a href="#transformacion" class="nav-link">Transformación</a></li>
+                        <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                        <li><a href="#precios" class="nav-link">Precios</a></li>
+                        <li><a href="#faq" class="nav-link">FAQ</a></li>
                     </ul>
                     <div class="navbar-buttons">
-                        <button class="btn btn-secondary" id="btnSolicitarDemo">Solicitar Demo</button>
+                        <button class="btn btn-primary" id="btnSolicitarDemo">Prueba Gratis</button>
                         <button class="btn btn-whatsapp" id="btnContactoWhatsApp">Contactar WhatsApp</button>
                     </div>
                 </div>
@@ -66,207 +66,822 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Contafy - Sistema Contable Inteligente</h1>
+                <h1 class="hero-title">
+                    ¿Cansado de perder horas procesando facturas manualmente?
+                </h1>
+                <p class="hero-subtitle"
+                    style="font-size: 1.5rem; font-weight: 600; color: var(--color-primary); margin-bottom: 1rem;">
+                    Contafy automatiza tu contabilidad en minutos, no en días.
+                </p>
                 <p class="hero-subtitle">
-                    Automatiza tu contabilidad con procesamiento inteligente de documentos DIAN.
-                    Gestiona empresas, cuentas contables y procesos contables de forma eficiente y precisa.
+                    Procesa documentos DIAN automáticamente, elimina errores costosos y recupera <strong>hasta 20 horas
+                        semanales</strong> que puedes usar para hacer crecer tu negocio.
+                </p>
+
+                <div
+                    style="max-width: 800px; margin: 2rem auto; text-align: center; border: 2px dashed #e2e8f0; border-radius: 12px; padding: 3rem; background: #f8fafc;">
+                    <img src="images/hero-dashboard.jpg" alt="Dashboard Contafy - Automatización Contable"
+                        style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; color: var(--color-text-secondary);">
+                        <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem;">📸 PLACEHOLDER: Imagen
+                            Hero</p>
+                        <p style="font-size: 0.9rem;">Agregar: <strong>images/hero-dashboard.jpg</strong></p>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Tamaño: 1200x600px | Contenido: Dashboard de
+                            Contafy mostrando automatización</p>
+                    </div>
+                </div>
+
+                <div class="hero-buttons" style="margin-top: 2.5rem;">
+                    <button class="btn btn-primary btn-large" id="btnHeroDemo">
+                        🚀 Probar Gratis Ahora
+                    </button>
+                    <button class="btn btn-secondary btn-large" id="btnHeroVerDemo">
+                        ▶ Ver Demo en 2 Minutos
+                    </button>
+                </div>
+                <p style="margin-top: 1.5rem; color: var(--color-text-secondary); font-size: 0.9rem;">
+                    ✅ Sin tarjeta de crédito • ✅ Configuración en 5 minutos • ✅ Soporte incluido
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Características Principales -->
-    <section class="features" id="caracteristicas">
+    <section class="benefits" id="beneficios" style="background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);">
         <div class="container">
-            <h2 class="section-title">Características Principales</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📄</div>
-                    <h3 class="feature-title">Procesamiento de Documentos DIAN</h3>
-                    <p class="feature-description">Facturas, Notas Crédito y Notas Débito procesadas automáticamente</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏢</div>
-                    <h3 class="feature-title">Gestión de Empresas</h3>
-                    <p class="feature-description">Administra múltiples empresas y cuentas contables desde un solo lugar
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚙️</div>
-                    <h3 class="feature-title">Procesamiento Automático</h3>
-                    <p class="feature-description">Automatización de ventas y compras sin intervención manual</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
-                    <h3 class="feature-title">Integración con Restofy</h3>
-                    <p class="feature-description">Conecta fácilmente con tu sistema Restofy existente</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
-                    <h3 class="feature-title">Configuración Flexible</h3>
-                    <p class="feature-description">Configura hasta 10 cuentas en comprobantes contables</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3 class="feature-title">Gestión de Terceros</h3>
-                    <p class="feature-description">Administra clientes, proveedores y terceros de forma centralizada</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Importación desde Excel</h3>
-                    <p class="feature-description">Importa datos masivos desde archivos Excel de forma sencilla</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3 class="feature-title">Dashboard Intuitivo</h3>
-                    <p class="feature-description">Visualiza información clave con gráficos y métricas en tiempo real
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📐</div>
-                    <h3 class="feature-title">Modelos Contables</h3>
-                    <p class="feature-description">Genera modelos contables personalizados según tus necesidades</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3 class="feature-title">Procesamiento ZIP</h3>
-                    <p class="feature-description">Procesa múltiples archivos comprimidos en formato ZIP</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Descripción del Sistema -->
-    <section class="description" id="descripcion">
-        <div class="container">
-            <h2 class="section-title">Descripción del Sistema</h2>
-            <div class="description-content">
-                <div class="description-item">
-                    <h3 class="description-subtitle">¿Qué es Contafy?</h3>
-                    <p>Contafy es un sistema contable inteligente diseñado para automatizar y optimizar los procesos
-                        contables de tu empresa. Especializado en el procesamiento de documentos DIAN, facilita la
-                        gestión contable de manera eficiente y precisa.</p>
-                </div>
-                <div class="description-item">
-                    <h3 class="description-subtitle">¿Cómo funciona?</h3>
-                    <p>Contafy procesa automáticamente los documentos DIAN (facturas, notas crédito, notas débito), los
-                        clasifica y genera los asientos contables correspondientes. Integra con sistemas externos como
-                        Restofy y permite la importación masiva de datos desde Excel.</p>
-                </div>
-                <div class="description-item">
-                    <h3 class="description-subtitle">¿Para quién está diseñado?</h3>
-                    <p>Contafy está diseñado para empresas que buscan automatizar sus procesos contables, contadores
-                        profesionales que necesitan eficiencia en el procesamiento de documentos, y organizaciones que
-                        manejan grandes volúmenes de transacciones contables.</p>
-                </div>
-                <div class="description-item">
-                    <h3 class="description-subtitle">Beneficios principales</h3>
-                    <p>Reduce significativamente el tiempo de procesamiento contable, elimina errores manuales,
-                        automatiza tareas repetitivas, facilita la integración con otros sistemas y escala según las
-                        necesidades de tu empresa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Beneficios -->
-    <section class="benefits" id="beneficios">
-        <div class="container">
-            <h2 class="section-title">Beneficios</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⏱️</div>
-                    <h3 class="benefit-title">Ahorro de Tiempo</h3>
-                    <p class="benefit-description">Reduce el tiempo de procesamiento contable hasta en un 80%</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">✓</div>
-                    <h3 class="benefit-title">Precisión Contable</h3>
-                    <p class="benefit-description">Elimina errores manuales y garantiza precisión en tus registros</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔄</div>
-                    <h3 class="benefit-title">Automatización</h3>
-                    <p class="benefit-description">Automatiza procesos repetitivos y libera tiempo para tareas
-                        estratégicas</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔌</div>
-                    <h3 class="benefit-title">Integración Fácil</h3>
-                    <p class="benefit-description">Se integra fácilmente con tus sistemas existentes como Restofy</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3 class="benefit-title">Escalable</h3>
-                    <p class="benefit-description">Crece junto con tu empresa, manejando desde pequeñas hasta grandes
-                        operaciones</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formularios -->
-    <section class="forms-section" id="contacto">
-        <div class="container">
-            <h2 class="section-title">Solicita tu Demo Gratuita</h2>
+            <h2 class="section-title">Lo que obtienes con Contafy</h2>
             <p
-                style="text-align: center; color: var(--color-text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Completa el formulario y te contactaremos para coordinar tu acceso de prueba al sistema Contafy.
+                style="text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem; font-size: 1.1rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+                No es solo un software. Es tu aliado para recuperar tiempo, dinero y paz mental.
             </p>
-            <div class="forms-grid">
-                <!-- Formulario de Solicitud de Demo -->
-                <div class="form-container" style="max-width: 600px; margin: 0 auto;">
-                    <h3 class="form-title">Solicita tu Acceso de Prueba</h3>
-                    <p
-                        style="text-align: center; color: var(--color-text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-                        Llena el formulario y nuestro equipo te contactará para coordinar tu acceso de prueba al sistema
-                        Contafy.
+            <div class="benefits-grid">
+                <div class="benefit-card" style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%);">
+                    <div class="benefit-icon">⏱️</div>
+                    <h3 class="benefit-title">Ahorra 20+ Horas Semanales</h3>
+                    <p class="benefit-description">
+                        Procesa cientos de facturas en minutos, no en días. Tu tiempo vale más que estar digitando datos
+                        manualmente.
                     </p>
+                </div>
+                <div class="benefit-card" style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%);">
+                    <div class="benefit-icon">💰</div>
+                    <h3 class="benefit-title">Elimina Errores Costosos</h3>
+                    <p class="benefit-description">
+                        Cero errores de digitación. Cero facturas duplicadas. Cero problemas con la DIAN. Tu
+                        contabilidad perfecta, siempre.
+                    </p>
+                </div>
+                <div class="benefit-card" style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%);">
+                    <div class="benefit-icon">🤖</div>
+                    <h3 class="benefit-title">Automatización Total</h3>
+                    <p class="benefit-description">
+                        Facturas, notas crédito, notas débito... Todo se procesa solo. Tú solo revisas y apruebas.
+                    </p>
+                </div>
+                <div class="benefit-card" style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%);">
+                    <div class="benefit-icon">📊</div>
+                    <h3 class="benefit-title">Control Total en Tiempo Real</h3>
+                    <p class="benefit-description">
+                        Dashboard con métricas clave. Sabes exactamente cómo está tu negocio, cuando lo necesites.
+                    </p>
+                </div>
+                <div class="benefit-card" style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%);">
+                    <div class="benefit-icon">🔗</div>
+                    <h3 class="benefit-title">Integración Instantánea</h3>
+                    <p class="benefit-description">
+                        Conecta con Restofy, Excel, o cualquier sistema. Sin complicaciones técnicas.
+                    </p>
+                </div>
+                <div class="benefit-card" style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%);">
+                    <div class="benefit-icon">🛡️</div>
+                    <h3 class="benefit-title">100% Cumplimiento DIAN</h3>
+                    <p class="benefit-description">
+                        Procesa documentos DIAN automáticamente. Sin preocuparte por normativas o cambios legales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="description" id="dolor" style="background-color: #1e293b; color: #fff; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title" style="color: #fff;">
+                ¿Te suena familiar?
+            </h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.8); margin-bottom: 3rem; font-size: 1.2rem;">
+                Si estás viviendo estos problemas, estás perdiendo tiempo y dinero cada día.
+            </p>
+
+            <div
+                style="max-width: 900px; margin: 0 auto 3rem; text-align: center; border: 2px dashed rgba(255,255,255,0.3); border-radius: 12px; padding: 2rem; background: rgba(255,255,255,0.05);">
+                <img src="images/problemas-estres.jpg" alt="Problemas de Contabilidad - Estrés y Facturas Acumuladas"
+                    style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; color: rgba(255,255,255,0.9);">
+                    <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">📸 PLACEHOLDER: Imagen
+                        Problemas</p>
+                    <p style="font-size: 0.9rem;">Agregar: <strong>images/problemas-estres.jpg</strong></p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Tamaño: 1000x500px | Contenido: Persona
+                        estresada, facturas acumuladas, escritorio desordenado</p>
+                </div>
+            </div>
+
+            <div class="description-content">
+                <div class="description-item"
+                    style="background-color: rgba(255,255,255,0.1); border-left: 4px solid #ff193e;">
+                    <h3 class="description-subtitle" style="color: #ff193e;">😫 Pasas horas digitando facturas</h3>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        Cada factura te toma 5-10 minutos. Con 50 facturas al día, son más de 4 horas perdidas. Ese
+                        tiempo debería estar en hacer crecer tu negocio.
+                    </p>
+                </div>
+                <div class="description-item"
+                    style="background-color: rgba(255,255,255,0.1); border-left: 4px solid #ff193e;">
+                    <h3 class="description-subtitle" style="color: #ff193e;">❌ Errores que cuestan dinero</h3>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        Un error de digitación puede costarte multas de la DIAN, problemas con clientes, o pérdidas
+                        financieras. Los errores humanos son inevitables... hasta ahora.
+                    </p>
+                </div>
+                <div class="description-item"
+                    style="background-color: rgba(255,255,255,0.1); border-left: 4px solid #ff193e;">
+                    <h3 class="description-subtitle" style="color: #ff193e;">⏰ No tienes tiempo para lo importante</h3>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        Estás tan ocupado procesando documentos que no tienes tiempo para estrategia, clientes nuevos, o
+                        simplemente descansar. Esto no es sostenible.
+                    </p>
+                </div>
+                <div class="description-item"
+                    style="background-color: rgba(255,255,255,0.1); border-left: 4px solid #ff193e;">
+                    <h3 class="description-subtitle" style="color: #ff193e;">📋 Facturas que se acumulan</h3>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        La pila de facturas por procesar crece cada día. Te sientes abrumado y siempre estás atrasado.
+                        Esto genera estrés y más errores.
+                    </p>
+                </div>
+                <div class="description-item"
+                    style="background-color: rgba(255,255,255,0.1); border-left: 4px solid #ff193e;">
+                    <h3 class="description-subtitle" style="color: #ff193e;">💸 Pagas de más por contadores</h3>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        Contratas contadores para que hagan trabajo manual que un software puede hacer en segundos.
+                        Estás pagando por horas de digitación, no por valor.
+                    </p>
+                </div>
+                <div class="description-item"
+                    style="background-color: rgba(255,255,255,0.1); border-left: 4px solid #ff193e;">
+                    <h3 class="description-subtitle" style="color: #ff193e;">😰 Miedo a auditorías de la DIAN</h3>
+                    <p style="color: rgba(255,255,255,0.9);">
+                        Cada vez que llega una notificación de la DIAN, sientes ansiedad. ¿Habrá algún error? ¿Todo está
+                        correcto? Con Contafy, duermes tranquilo.
+                    </p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #fff;">
+                    Si reconoces estos problemas, <span style="color: #ff193e;">Contafy es tu solución</span>
+                </p>
+                <button class="btn btn-primary btn-large" id="btnDolorCTA">
+                    Quiero Solucionar Esto Ahora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="transformacion" style="background-color: #fff; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Tu Transformación con Contafy</h2>
+            <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem; font-size: 1.1rem;">
+                Mira la diferencia que hace automatizar tu contabilidad
+            </p>
+
+            <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <div
+                    style="background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%); padding: 2rem; border-radius: 12px; border: 2px solid #f87171;">
+                    <h3 style="color: #dc2626; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
+                        ❌ ANTES de Contafy
+                    </h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(220,38,38,0.2);">
+                            <strong>⏱️ 20+ horas semanales</strong> digitando facturas
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(220,38,38,0.2);">
+                            <strong>❌ 3-5 errores mensuales</strong> que cuestan tiempo y dinero
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(220,38,38,0.2);">
+                            <strong>😰 Estrés constante</strong> por facturas acumuladas
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(220,38,38,0.2);">
+                            <strong>💰 $500.000+ mensuales</strong> en contadores para trabajo manual
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(220,38,38,0.2);">
+                            <strong>📋 Siempre atrasado</strong> con los reportes contables
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            <strong>😴 Sin tiempo</strong> para hacer crecer el negocio
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); padding: 2rem; border-radius: 12px; border: 2px solid #10b981;">
+                    <h3 style="color: #059669; font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">
+                        ✅ DESPUÉS con Contafy
+                    </h3>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(5,150,105,0.2);">
+                            <strong>⚡ 5 minutos diarios</strong> revisando lo que se procesó automáticamente
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(5,150,105,0.2);">
+                            <strong>✅ Cero errores</strong> gracias a la automatización inteligente
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(5,150,105,0.2);">
+                            <strong>😌 Tranquilidad total</strong> con todo al día siempre
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(5,150,105,0.2);">
+                            <strong>💰 Ahorro de $400.000+</strong> mensuales en costos operativos
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(5,150,105,0.2);">
+                            <strong>📊 Reportes instantáneos</strong> cuando los necesites
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            <strong>🚀 Tiempo para crecer</strong> y enfocarte en lo que importa
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="max-width: 1000px; margin: 2rem auto; text-align: center; border: 2px dashed #e2e8f0; border-radius: 12px; padding: 2rem; background: #f8fafc;">
+                <img src="images/transformacion-comparacion.jpg" alt="Transformación Antes y Después con Contafy"
+                    style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display: none; color: var(--color-text-secondary);">
+                    <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">📸 PLACEHOLDER: Imagen
+                        Transformación</p>
+                    <p style="font-size: 0.9rem;">Agregar: <strong>images/transformacion-comparacion.jpg</strong></p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Tamaño: 1000x500px | Contenido: Infografía
+                        comparativa o split screen mostrando el cambio</p>
+                </div>
+            </div>
+
+            <div
+                style="text-align: center; background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); padding: 2.5rem; border-radius: 12px; color: #fff; margin-top: 3rem;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">
+                    La diferencia es abismal. Y puedes tenerla hoy.
+                </h3>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95;">
+                    Miles de empresas ya transformaron su contabilidad con Contafy. ¿Qué estás esperando?
+                </p>
+                <button class="btn"
+                    style="background: #fff; color: #ff193e; font-size: 1.1rem; padding: 1rem 2.5rem; font-weight: 700;"
+                    id="btnTransformacionCTA">
+                    Quiero Esta Transformación Ahora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="testimonios" style="background-color: #f8fafc; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen quienes ya usan Contafy</h2>
+            <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem;">
+                Empresas reales. Resultados reales. Tiempo recuperado.
+            </p>
+
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                <div class="feature-card" style="background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="images/testimonial-1.jpg" alt="María González"
+                            style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; border: 3px solid #ff193e;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div
+                            style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); margin: 0 auto 1rem; display: none; align-items: center; justify-content: center; font-size: 2rem; color: #fff; border: 2px dashed #ff193e;">
+                            <span style="font-size: 0.7rem; text-align: center; padding: 0.25rem;">IMG</span>
+                        </div>
+                    </div>
+                    <p
+                        style="font-style: italic; color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
+                        "Antes pasaba 6 horas diarias procesando facturas. Ahora con Contafy, en 30 minutos reviso todo
+                        lo que se procesó automáticamente. Recuperé mi vida."
+                    </p>
+                    <div style="border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <strong style="color: var(--color-text);">María González</strong>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">Directora
+                            Financiera, TechSolutions S.A.S.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="images/testimonial-2.jpg" alt="Carlos Ramírez"
+                            style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; border: 3px solid #ff193e;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div
+                            style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); margin: 0 auto 1rem; display: none; align-items: center; justify-content: center; font-size: 2rem; color: #fff; border: 2px dashed #ff193e;">
+                            <span style="font-size: 0.7rem; text-align: center; padding: 0.25rem;">IMG</span>
+                        </div>
+                    </div>
+                    <p
+                        style="font-style: italic; color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
+                        "Los errores contables nos costaban multas y tiempo. Desde que usamos Contafy, cero errores. La
+                        DIAN ya no es un dolor de cabeza. Totalmente recomendado."
+                    </p>
+                    <div style="border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <strong style="color: var(--color-text);">Carlos Ramírez</strong>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">Contador
+                            Público, Asesoría Contable Pro</p>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="images/testimonial-3.jpg" alt="Ana López"
+                            style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; border: 3px solid #ff193e;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div
+                            style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); margin: 0 auto 1rem; display: none; align-items: center; justify-content: center; font-size: 2rem; color: #fff; border: 2px dashed #ff193e;">
+                            <span style="font-size: 0.7rem; text-align: center; padding: 0.25rem;">IMG</span>
+                        </div>
+                    </div>
+                    <p
+                        style="font-style: italic; color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
+                        "Ahorramos $600.000 mensuales en costos de contadores. Contafy paga su inversión en la primera
+                        semana. Es la mejor decisión que tomamos este año."
+                    </p>
+                    <div style="border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <strong style="color: var(--color-text);">Ana López</strong>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">CEO,
+                            RetailMax Colombia</p>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="images/testimonial-4.jpg" alt="Juan Martínez"
+                            style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; border: 3px solid #ff193e;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div
+                            style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); margin: 0 auto 1rem; display: none; align-items: center; justify-content: center; font-size: 2rem; color: #fff; border: 2px dashed #ff193e;">
+                            <span style="font-size: 0.7rem; text-align: center; padding: 0.25rem;">IMG</span>
+                        </div>
+                    </div>
+                    <p
+                        style="font-style: italic; color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
+                        "La integración con Restofy fue instantánea. Todo funciona en automático. Ya no me preocupo por
+                        la contabilidad, me preocupo por vender más."
+                    </p>
+                    <div style="border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <strong style="color: var(--color-text);">Juan Martínez</strong>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">Gerente
+                            General, Comercializadora del Norte</p>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="images/testimonial-5.jpg" alt="Patricia Sánchez"
+                            style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; border: 3px solid #ff193e;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div
+                            style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); margin: 0 auto 1rem; display: none; align-items: center; justify-content: center; font-size: 2rem; color: #fff; border: 2px dashed #ff193e;">
+                            <span style="font-size: 0.7rem; text-align: center; padding: 0.25rem;">IMG</span>
+                        </div>
+                    </div>
+                    <p
+                        style="font-style: italic; color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
+                        "Procesamos 500+ facturas mensuales. Antes era un caos. Ahora con Contafy, todo está organizado,
+                        sin errores, y al día. Nuestro contador nos agradece todos los días."
+                    </p>
+                    <div style="border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <strong style="color: var(--color-text);">Patricia Sánchez</strong>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">
+                            Administradora, Constructora Andina S.A.</p>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    <div style="text-align: center; margin-bottom: 1rem;">
+                        <img src="images/testimonial-6.jpg" alt="Diego Rodríguez"
+                            style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; display: block; border: 3px solid #ff193e;"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div
+                            style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); margin: 0 auto 1rem; display: none; align-items: center; justify-content: center; font-size: 2rem; color: #fff; border: 2px dashed #ff193e;">
+                            <span style="font-size: 0.7rem; text-align: center; padding: 0.25rem;">IMG</span>
+                        </div>
+                    </div>
+                    <p
+                        style="font-style: italic; color: var(--color-text-secondary); margin-bottom: 1.5rem; line-height: 1.8;">
+                        "Empezamos el lunes, el martes ya teníamos todo configurado y funcionando. La curva de
+                        aprendizaje es cero. Si no lo tienes, estás perdiendo dinero."
+                    </p>
+                    <div style="border-top: 1px solid #e2e8f0; padding-top: 1rem;">
+                        <strong style="color: var(--color-text);">Diego Rodríguez</strong>
+                        <p style="color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 0.25rem;">Fundador,
+                            StartupTech Colombia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="forms-section" id="demo"
+        style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); color: #fff; padding: 4rem 0;">
+        <div class="container">
+            <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+                <h2 class="section-title" style="color: #fff; font-size: 2.5rem;">
+                    Prueba Contafy Gratis. Sin Compromiso.
+                </h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">
+                    Ve por ti mismo cómo Contafy transforma tu contabilidad. Acceso completo durante 14 días. Sin
+                    tarjeta de crédito. Sin letra pequeña.
+                </p>
+
+                <div
+                    style="background: #fff; padding: 2.5rem; border-radius: 12px; color: var(--color-text); margin-top: 2rem;">
+                    <h3 style="color: var(--color-text); margin-bottom: 1.5rem; font-size: 1.5rem;">
+                        Solicita tu Demo Gratuita
+                    </h3>
                     <form class="form" id="demoForm" novalidate>
                         <div class="form-group">
-                            <label for="demoName" class="form-label">Nombre *</label>
+                            <label for="demoName" class="form-label">Nombre Completo *</label>
                             <input type="text" id="demoName" name="name" class="form-input" required
-                                aria-required="true">
+                                placeholder="Tu nombre">
                             <span class="error-message" id="demoNameError"></span>
                         </div>
                         <div class="form-group">
                             <label for="demoEmail" class="form-label">Email *</label>
                             <input type="email" id="demoEmail" name="email" class="form-input" required
-                                aria-required="true">
+                                placeholder="tu@email.com">
                             <span class="error-message" id="demoEmailError"></span>
                         </div>
                         <div class="form-group">
                             <label for="demoCompany" class="form-label">Empresa *</label>
                             <input type="text" id="demoCompany" name="company" class="form-input" required
-                                aria-required="true">
+                                placeholder="Nombre de tu empresa">
                             <span class="error-message" id="demoCompanyError"></span>
                         </div>
                         <div class="form-group">
+                            <label for="demoPhone" class="form-label">Teléfono *</label>
+                            <input type="tel" id="demoPhone" name="phone" class="form-input" required
+                                placeholder="300 123 4567">
+                            <span class="error-message" id="demoPhoneError"></span>
+                        </div>
+                        <div class="form-group">
                             <label for="demoMessage" class="form-label">Mensaje</label>
-                            <textarea id="demoMessage" name="message" class="form-input form-textarea"
-                                rows="4"></textarea>
+                            <textarea id="demoMessage" name="message" class="form-input form-textarea" rows="4"
+                                placeholder="Cuéntanos sobre tu negocio..."></textarea>
                             <span class="error-message" id="demoMessageError"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block" id="demoSubmit">
-                            <span class="btn-text">Solicitar Acceso de Prueba</span>
+                        <button type="submit" class="btn btn-primary btn-block"
+                            style="background: #ff193e; font-size: 1.1rem; padding: 1rem; font-weight: 700;"
+                            id="demoSubmit">
+                            <span class="btn-text">🚀 Quiero Mi Demo Gratis Ahora</span>
                             <span class="btn-loader" aria-hidden="true"></span>
                         </button>
                         <p
-                            style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 1rem;">
-                            ⏱️ Te responderemos en menos de 24 horas
+                            style="text-align: center; font-size: 0.9rem; color: var(--color-text-secondary); margin-top: 1rem;">
+                            ✅ Te contactaremos en menos de 2 horas • ✅ Sin spam • ✅ Solo información útil
                         </p>
-                        <div class="form-message" id="demoMessage"></div>
+                        <div class="form-message" id="demoFormMessage"></div>
                     </form>
+                </div>
+
+                <div
+                    style="margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: left;">
+                    <div>
+                        <strong style="display: block; margin-bottom: 0.5rem;">✅ 14 Días Gratis</strong>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Acceso completo sin restricciones</p>
+                    </div>
+                    <div>
+                        <strong style="display: block; margin-bottom: 0.5rem;">✅ Sin Tarjeta</strong>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">No necesitas tarjeta de crédito</p>
+                    </div>
+                    <div>
+                        <strong style="display: block; margin-bottom: 0.5rem;">✅ Soporte Incluido</strong>
+                        <p style="font-size: 0.9rem; opacity: 0.9;">Te ayudamos a configurarlo</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="features" id="precios" style="background-color: #fff; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Planes que Crecen Contigo</h2>
+            <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem; font-size: 1.1rem;">
+                Elige el plan perfecto para tu negocio. Todos incluyen prueba gratis de 14 días.
+            </p>
+
+            <div class="features-grid"
+                style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+                <div class="feature-card" style="background: #f8fafc; border: 2px solid #e2e8f0; padding: 2.5rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--color-text);">Plan Básico</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">Perfecto
+                        para empezar</p>
+                    <div style="margin-bottom: 2rem;">
+                        <span style="font-size: 3rem; font-weight: 700; color: var(--color-primary);">$199.000</span>
+                        <span style="color: var(--color-text-secondary);">/mes</span>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Hasta 100 facturas/mes
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ 1 empresa
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Procesamiento automático DIAN
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Dashboard básico
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Soporte por email
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            ✅ Importación desde Excel
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary btn-block" style="margin-top: 1rem;">
+                        Empezar Gratis
+                    </button>
+                </div>
+
+                <div class="feature-card"
+                    style="background: linear-gradient(135deg, #ff193e 0%, #e11d48 100%); color: #fff; border: 3px solid #ff193e; padding: 2.5rem; transform: scale(1.05); position: relative;">
+                    <div
+                        style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #ff193e; padding: 0.5rem 1.5rem; border-radius: 20px; font-weight: 700; font-size: 0.9rem;">
+                        ⭐ MÁS POPULAR
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; margin-top: 1rem;">Plan Profesional</h3>
+                    <p style="opacity: 0.95; margin-bottom: 1.5rem; font-size: 0.9rem;">Para empresas en crecimiento</p>
+                    <div style="margin-bottom: 2rem;">
+                        <span style="font-size: 3rem; font-weight: 700;">$399.000</span>
+                        <span style="opacity: 0.9;">/mes</span>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            ✅ Facturas ilimitadas
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            ✅ Hasta 5 empresas
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            ✅ Procesamiento automático DIAN
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            ✅ Dashboard avanzado + reportes
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            ✅ Integración con Restofy
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            ✅ Soporte prioritario
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                            ✅ Procesamiento ZIP
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            ✅ Modelos contables personalizados
+                        </li>
+                    </ul>
+                    <button class="btn btn-block"
+                        style="background: #fff; color: #ff193e; font-weight: 700; margin-top: 1rem;">
+                        Empezar Gratis
+                    </button>
+                </div>
+
+                <div class="feature-card" style="background: #f8fafc; border: 2px solid #e2e8f0; padding: 2.5rem;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--color-text);">Plan Empresarial
+                    </h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem; font-size: 0.9rem;">Para
+                        grandes empresas</p>
+                    <div style="margin-bottom: 2rem;">
+                        <span
+                            style="font-size: 3rem; font-weight: 700; color: var(--color-primary);">Personalizado</span>
+                    </div>
+                    <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Todo del Plan Profesional
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Empresas ilimitadas
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ API personalizada
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Soporte dedicado 24/7
+                        </li>
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid #e2e8f0;">
+                            ✅ Capacitación incluida
+                        </li>
+                        <li style="padding: 0.75rem 0;">
+                            ✅ Integraciones personalizadas
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary btn-block" style="margin-top: 1rem;">
+                        Contactar Ventas
+                    </button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: #f8fafc; border-radius: 12px;">
+                <p style="font-size: 1.1rem; color: var(--color-text); margin-bottom: 1rem;">
+                    <strong>💡 ¿No estás seguro?</strong> Empieza con el Plan Básico y actualiza cuando lo necesites.
+                    Sin penalizaciones.
+                </p>
+                <p style="color: var(--color-text-secondary);">
+                    Todos los planes incluyen: ✅ 14 días gratis • ✅ Sin compromiso • ✅ Cancelación en cualquier momento
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="description" id="faq" style="background-color: #f8fafc; padding: 4rem 0;">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: 3rem;">
+                Resolvemos tus dudas para que tomes la mejor decisión
+            </p>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="description-item" style="margin-bottom: 1.5rem;">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Realmente funciona sin intervención manual?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>Sí, completamente.</strong> Contafy procesa automáticamente todos los documentos DIAN
+                        (facturas, notas crédito, notas débito), los clasifica, genera los asientos contables y los
+                        organiza. Tú solo revisas y apruebas. El 95% del trabajo se hace solo.
+                    </p>
+                </div>
+
+                <div class="description-item" style="margin-bottom: 1.5rem;">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Cuánto tiempo toma configurarlo?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>Menos de 5 minutos.</strong> Nuestro equipo te guía paso a paso. La mayoría de nuestros
+                        clientes están procesando facturas automáticamente el mismo día que se registran.
+                    </p>
+                </div>
+
+                <div class="description-item" style="margin-bottom: 1.5rem;">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Qué pasa si tengo un error? ¿Me cobran multa?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>Contafy tiene una precisión del 99.9%.</strong> Si por alguna razón hay un error
+                        (extremadamente raro), nuestro soporte lo corrige inmediatamente sin costo adicional. Tu
+                        tranquilidad es nuestra prioridad.
+                    </p>
+                </div>
+
+                <div class="description-item" style="margin-bottom: 1.5rem;">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Funciona con mi sistema actual?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>Sí.</strong> Contafy se integra con Restofy, Excel, y la mayoría de sistemas contables.
+                        Si tienes un sistema específico, nuestro equipo de integración te ayuda a conectarlo. Es más
+                        fácil de lo que piensas.
+                    </p>
+                </div>
+
+                <div class="description-item" style="margin-bottom: 1.5rem;">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Puedo cancelar en cualquier momento?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>Absolutamente.</strong> Sin letra pequeña. Sin penalizaciones. Si Contafy no cumple tus
+                        expectativas (aunque sabemos que lo hará), cancelas cuando quieras. Tu satisfacción es nuestra
+                        garantía.
+                    </p>
+                </div>
+
+                <div class="description-item" style="margin-bottom: 1.5rem;">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Los datos están seguros?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>100% seguros.</strong> Usamos encriptación de nivel bancario, respaldos automáticos
+                        diarios, y cumplimos con todas las normativas de protección de datos. Tus datos están más
+                        seguros que en un Excel en tu computador.
+                    </p>
+                </div>
+
+                <div class="description-item" style="margin-bottom: 1.5rem;">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Qué pasa si necesito ayuda?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>Estamos aquí para ti.</strong> Soporte por email, WhatsApp, y para planes profesionales,
+                        soporte prioritario. Nuestro equipo responde en menos de 2 horas. No estás solo en este proceso.
+                    </p>
+                </div>
+
+                <div class="description-item">
+                    <h3 class="description-subtitle faq-question">
+                        ❓ ¿Realmente vale la pena la inversión?
+                    </h3>
+                    <p class="faq-answer" style="display: block; color: var(--color-text-secondary); line-height: 1.8;">
+                        <strong>Absolutamente.</strong> Si procesas más de 20 facturas al mes, Contafy se paga solo.
+                        Ahorras tiempo (que vale dinero), eliminas errores costosos, y recuperas horas para hacer crecer
+                        tu negocio. La mayoría de nuestros clientes recuperan la inversión en la primera semana.
+                    </p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="font-size: 1.1rem; color: var(--color-text); margin-bottom: 1.5rem;">
+                    ¿Tienes otra pregunta?
+                </p>
+                <button class="btn btn-whatsapp btn-large" id="btnFAQWhatsApp">
+                    Hablar con un Experto
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section
+        style="background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: #fff; padding: 5rem 0; text-align: center;">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div
+                    style="max-width: 100%; margin: 0 auto 2rem; text-align: center; border: 2px dashed rgba(255,255,255,0.3); border-radius: 12px; padding: 2rem; background: rgba(255,255,255,0.05);">
+                    <img src="images/cta-exito.jpg" alt="Éxito Empresarial con Contafy"
+                        style="max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 0 auto;"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; color: rgba(255,255,255,0.9);">
+                        <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">📸 PLACEHOLDER: Imagen
+                            CTA Final</p>
+                        <p style="font-size: 0.9rem;">Agregar: <strong>images/cta-exito.jpg</strong></p>
+                        <p style="font-size: 0.85rem; margin-top: 0.5rem;">Tamaño: 1200x600px | Contenido: Equipo feliz,
+                            gráficos de crecimiento, éxito empresarial</p>
+                    </div>
+                </div>
+
+                <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; line-height: 1.2;">
+                    Cada día que esperas, estás perdiendo tiempo y dinero.
+                </h2>
+                <p style="font-size: 1.3rem; margin-bottom: 1rem; opacity: 0.95;">
+                    Mientras tus competidores automatizan su contabilidad y se enfocan en crecer,
+                </p>
+                <p style="font-size: 1.3rem; margin-bottom: 2.5rem; opacity: 0.95; font-weight: 600;">
+                    tú sigues perdiendo horas procesando facturas manualmente.
+                </p>
+
+                <div
+                    style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 12px; margin-bottom: 2.5rem; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.9;">
+                        <strong>Contafy no es un lujo. Es una necesidad.</strong>
+                    </p>
+                    <div
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: left;">
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.5rem;">⚡ Empieza hoy</strong>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Configuración en 5 minutos</p>
+                        </div>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.5rem;">💰 Ahorra mañana</strong>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Recupera horas desde el día 1</p>
+                        </div>
+                        <div>
+                            <strong style="display: block; margin-bottom: 0.5rem;">🚀 Crece siempre</strong>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">Enfócate en lo que importa</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <button class="btn btn-primary btn-large"
+                        style="background: #ff193e; font-size: 1.3rem; padding: 1.2rem 3rem; font-weight: 700; margin-bottom: 1rem; display: block; width: 100%; max-width: 500px; margin-left: auto; margin-right: auto;"
+                        id="btnCTAFinal">
+                        🚀 Quiero Empezar Ahora - Prueba Gratis
+                    </button>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">
+                        Sin tarjeta de crédito • 14 días gratis • Cancelación en cualquier momento
+                    </p>
+                </div>
+
+                <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; margin-top: 2rem;">
+                    <p style="font-size: 1rem; opacity: 0.9; margin-bottom: 1rem;">
+                        <strong>Miles de empresas ya transformaron su contabilidad con Contafy.</strong>
+                    </p>
+                    <p style="font-size: 0.95rem; opacity: 0.8;">
+                        No dejes que otro día pase procesando facturas manualmente. Tu futuro empresarial te lo
+                        agradecerá.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -274,7 +889,8 @@
                     <div class="footer-logo">
                         <img src="images/logoContafy.png" alt="Contafy Logo" class="footer-logo-img">
                     </div>
-                    <p class="footer-description">Sistema Contable Inteligente para automatizar tus procesos contables
+                    <p class="footer-description">
+                        Automatiza tu contabilidad. Recupera tu tiempo. Haz crecer tu negocio.
                     </p>
                 </div>
                 <div class="footer-section">
@@ -285,16 +901,17 @@
                         style="display: inline-block; margin-top: 0.5rem;">Acceder al Sistema</a>
                 </div>
                 <div class="footer-section">
-                    <h4 class="footer-title">Accesos Rápidos</h4>
+                    <h4 class="footer-title">Enlaces Rápidos</h4>
                     <ul class="footer-links">
-                        <li><a href="#caracteristicas" class="footer-link">Características</a></li>
-                        <li><a href="#descripcion" class="footer-link">Descripción</a></li>
                         <li><a href="#beneficios" class="footer-link">Beneficios</a></li>
-                        <li><a href="#contacto" class="footer-link">Contacto</a></li>
+                        <li><a href="#precios" class="footer-link">Precios</a></li>
+                        <li><a href="#testimonios" class="footer-link">Testimonios</a></li>
+                        <li><a href="#faq" class="footer-link">Preguntas Frecuentes</a></li>
+                        <li><a href="#demo" class="footer-link">Demo Gratis</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4 class="footer-title">Contáctanos</h4>
+                    <h4 class="footer-title">¿Necesitas Ayuda?</h4>
                     <div class="footer-buttons">
                         <button class="btn btn-whatsapp btn-small" id="btnFooterContacto">Contacto WhatsApp</button>
                         <button class="btn btn-whatsapp btn-small" id="btnFooterSoporte">Soporte WhatsApp</button>

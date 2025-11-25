@@ -1,53 +1,42 @@
-// Configuración
 const WHATSAPP_NUMBER = '573013709791';
 const WHATSAPP_BASE_URL = 'https://wa.me/';
 
-// Mensajes predefinidos para WhatsApp
 const WHATSAPP_MESSAGES = {
     contacto: 'Hola, me gustaría obtener más información sobre Contafy.',
     soporte: 'Hola, necesito soporte técnico para Contafy.'
 };
 
-// Configuración del Backend
-// Detecta automáticamente el entorno (desarrollo o producción)
 const isDevelopment = window.location.hostname === 'localhost' || 
                       window.location.hostname === '127.0.0.1' ||
                       window.location.hostname === '';
 
-// URL del backend según el entorno
 const API_BASE_URL = isDevelopment 
-    ? 'http://127.0.0.1:8000'  // Desarrollo local
-    : 'https://api.contafy.com'; // Producción (cambiar cuando tengas la URL)
+    ? 'http://127.0.0.1:8000'
+    : 'https://api.contafy.com';
 
-// URL del sistema principal de Contafy
 const SYSTEM_URL = 'https://soft-contabilidad-9rwk.vercel.app';
 
 const API_ENDPOINTS = {
     register: `${API_BASE_URL}/api/auth/register`,
-    requestDemo: `${API_BASE_URL}/api/landing/request-demo`, // Para implementar después
+    requestDemo: `${API_BASE_URL}/api/landing/request-demo`,
     contact: `${API_BASE_URL}/api/landing/contact`
 };
 
-// Utilidades
 const utils = {
-    // Validación de email
     validateEmail(email) {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
     },
     
-    // Validación de teléfono (formato colombiano)
     validatePhone(phone) {
         const re = /^[0-9]{10}$/;
         return re.test(phone.replace(/\s+/g, ''));
     },
     
-    // Formatear teléfono
     formatPhone(phone) {
         return phone.replace(/\D/g, '');
     },
     
-    // Mostrar mensaje de error
     showError(input, message) {
         const errorElement = document.getElementById(`${input.id}Error`);
         if (errorElement) {
@@ -56,7 +45,6 @@ const utils = {
         }
     },
     
-    // Limpiar error
     clearError(input) {
         const errorElement = document.getElementById(`${input.id}Error`);
         if (errorElement) {
@@ -65,27 +53,22 @@ const utils = {
         }
     },
     
-    // Validar campo
     validateField(input) {
         const value = input.value.trim();
         let isValid = true;
         
-        // Limpiar error previo
         this.clearError(input);
         
-        // Validación requerida
         if (input.hasAttribute('required') && !value) {
             this.showError(input, 'Este campo es obligatorio');
             isValid = false;
         }
         
-        // Validación de email
         if (input.type === 'email' && value && !this.validateEmail(value)) {
             this.showError(input, 'Ingresa un email válido');
             isValid = false;
         }
         
-        // Validación de teléfono
         if (input.type === 'tel' && value && !this.validatePhone(value)) {
             this.showError(input, 'Ingresa un teléfono válido (10 dígitos)');
             isValid = false;
@@ -95,16 +78,13 @@ const utils = {
     }
 };
 
-// Funciones de WhatsApp
 const whatsapp = {
-    // Abrir WhatsApp con mensaje predefinido
     openWhatsApp(type = 'contacto') {
         const message = encodeURIComponent(WHATSAPP_MESSAGES[type] || WHATSAPP_MESSAGES.contacto);
         const url = `${WHATSAPP_BASE_URL}${WHATSAPP_NUMBER}?text=${message}`;
         window.open(url, '_blank');
     },
     
-    // Abrir WhatsApp con mensaje personalizado
     openWithMessage(message) {
         const encodedMessage = encodeURIComponent(message);
         const url = `${WHATSAPP_BASE_URL}${WHATSAPP_NUMBER}?text=${encodedMessage}`;
@@ -112,10 +92,8 @@ const whatsapp = {
     }
 };
 
-// Navegación
 const navigation = {
     init() {
-        // Smooth scroll a secciones
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
@@ -132,25 +110,19 @@ const navigation = {
                         behavior: 'smooth'
                     });
                     
-                    // Cerrar menú móvil si está abierto
                     menu.toggle(false);
-                    
-                    // Actualizar estado activo
                     navigation.updateActiveState(href);
                 }
             });
         });
         
-        // Actualizar estado activo al hacer scroll
         window.addEventListener('scroll', () => {
             navigation.updateActiveOnScroll();
         });
         
-        // Estado inicial
         navigation.updateActiveOnScroll();
     },
     
-    // Actualizar estado activo en navegación
     updateActiveState(href) {
         document.querySelectorAll('.nav-link').forEach(link => {
             link.classList.remove('active');
@@ -160,7 +132,6 @@ const navigation = {
         });
     },
     
-    // Actualizar estado activo según scroll
     updateActiveOnScroll() {
         const sections = document.querySelectorAll('section[id]');
         const headerHeight = document.querySelector('.header').offsetHeight;
@@ -183,7 +154,6 @@ const navigation = {
     }
 };
 
-// Menú hamburguesa
 const menu = {
     init() {
         const menuToggle = document.getElementById('menuToggle');
@@ -194,7 +164,6 @@ const menu = {
                 this.toggle();
             });
             
-            // Cerrar menú al hacer clic fuera
             document.addEventListener('click', (e) => {
                 if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                     this.toggle(false);
@@ -218,10 +187,8 @@ const menu = {
     }
 };
 
-// Animaciones de scroll
 const scrollAnimations = {
     init() {
-        // Observador para animaciones fade in
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -236,12 +203,10 @@ const scrollAnimations = {
             });
         }, observerOptions);
         
-        // Observar elementos con animación
         document.querySelectorAll('.feature-card, .description-item, .benefit-card').forEach(el => {
             observer.observe(el);
         });
         
-        // Lazy loading de imágenes
         this.initLazyLoading();
     },
     
@@ -261,16 +226,13 @@ const scrollAnimations = {
             
             images.forEach(img => imageObserver.observe(img));
         } else {
-            // Fallback para navegadores sin IntersectionObserver
             images.forEach(img => img.classList.add('loaded'));
         }
     }
 };
 
-// Manejo de formularios
 const forms = {
     init() {
-        // Formulario de registro
         const registerForm = document.getElementById('registerForm');
         if (registerForm) {
             registerForm.addEventListener('submit', (e) => {
@@ -278,7 +240,6 @@ const forms = {
                 this.handleRegister(registerForm);
             });
             
-            // Validación en tiempo real
             registerForm.querySelectorAll('input').forEach(input => {
                 input.addEventListener('blur', () => {
                     utils.validateField(input);
@@ -286,7 +247,6 @@ const forms = {
             });
         }
         
-        // Formulario de demo
         const demoForm = document.getElementById('demoForm');
         if (demoForm) {
             demoForm.addEventListener('submit', (e) => {
@@ -294,7 +254,6 @@ const forms = {
                 this.handleDemo(demoForm);
             });
             
-            // Validación en tiempo real
             demoForm.querySelectorAll('input, textarea').forEach(input => {
                 input.addEventListener('blur', () => {
                     utils.validateField(input);
@@ -303,7 +262,6 @@ const forms = {
         }
     },
     
-    // Validar formulario completo
     validateForm(form) {
         let isValid = true;
         const inputs = form.querySelectorAll('input[required], textarea[required]');
@@ -317,18 +275,15 @@ const forms = {
         return isValid;
     },
     
-    // Mostrar mensaje de formulario
     showMessage(form, type, message) {
-        const messageElement = form.querySelector('.form-message');
+        const messageElement = form.querySelector('.form-message') || document.getElementById('demoFormMessage');
         if (messageElement) {
             messageElement.className = `form-message ${type}`;
             messageElement.textContent = message;
             messageElement.style.display = 'block';
             
-            // Scroll al mensaje
             messageElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             
-            // Ocultar después de 5 segundos si es éxito
             if (type === 'success') {
                 setTimeout(() => {
                     messageElement.style.display = 'none';
@@ -337,7 +292,6 @@ const forms = {
         }
     },
     
-    // Manejar registro
     async handleRegister(form) {
         if (!this.validateForm(form)) {
             this.showMessage(form, 'error', 'Por favor, completa todos los campos correctamente.');
@@ -352,12 +306,10 @@ const forms = {
             phone: utils.formatPhone(document.getElementById('registerPhone').value)
         };
         
-        // Mostrar loading
         submitButton.classList.add('loading');
         submitButton.disabled = true;
         
         try {
-            // Enviar registro al backend
             const response = await fetch(API_ENDPOINTS.register, {
                 method: 'POST',
                 headers: {
@@ -370,17 +322,14 @@ const forms = {
             const result = await response.json();
             
             if (!response.ok) {
-                // Manejar errores del servidor
                 const errorMessage = result.message || result.error || 'Error al procesar el registro';
                 throw new Error(errorMessage);
             }
             
-            // Registro exitoso
             const successMessage = result.message || '¡Registro exitoso! Redirigiendo al sistema...';
             this.showMessage(form, 'success', successMessage);
             form.reset();
             
-            // Redirigir al sistema después de 2 segundos (opcional)
             setTimeout(() => {
                 window.open(SYSTEM_URL, '_blank');
             }, 2000);
@@ -388,7 +337,6 @@ const forms = {
         } catch (error) {
             console.error('Error al registrar:', error);
             
-            // Mensajes de error más específicos
             let errorMessage = 'Hubo un error al procesar tu registro. Por favor, intenta nuevamente.';
             
             if (error.message) {
@@ -404,7 +352,6 @@ const forms = {
         }
     },
     
-    // Manejar solicitud de demo
     async handleDemo(form) {
         if (!this.validateForm(form)) {
             this.showMessage(form, 'error', 'Por favor, completa todos los campos correctamente.');
@@ -412,19 +359,21 @@ const forms = {
         }
         
         const submitButton = form.querySelector('button[type="submit"]');
+        const phoneInput = document.getElementById('demoPhone');
+        const phone = phoneInput ? utils.formatPhone(phoneInput.value) : '';
+        
         const formData = {
             name: document.getElementById('demoName').value.trim(),
             email: document.getElementById('demoEmail').value.trim(),
             company: document.getElementById('demoCompany').value.trim(),
-            message: document.getElementById('demoMessage').value.trim()
+            phone: phone,
+            message: document.getElementById('demoMessage') ? document.getElementById('demoMessage').value.trim() : ''
         };
         
-        // Mostrar loading
         submitButton.classList.add('loading');
         submitButton.disabled = true;
         
         try {
-            // Enviar solicitud de demo al backend
             const response = await fetch(API_ENDPOINTS.requestDemo, {
                 method: 'POST',
                 headers: {
@@ -437,12 +386,10 @@ const forms = {
             const result = await response.json();
             
             if (!response.ok) {
-                // Manejar errores del servidor
                 const errorMessage = result.message || result.error || 'Error al procesar la solicitud';
                 throw new Error(errorMessage);
             }
             
-            // Solicitud exitosa
             const successMessage = result.message || '¡Solicitud de demo enviada! Revisaremos tu solicitud y te contactaremos pronto para coordinar el acceso de prueba.';
             this.showMessage(form, 'success', successMessage);
             form.reset();
@@ -450,7 +397,6 @@ const forms = {
         } catch (error) {
             console.error('Error al solicitar demo:', error);
             
-            // Mensajes de error más específicos
             let errorMessage = 'Hubo un error al procesar tu solicitud. Por favor, intenta nuevamente.';
             
             if (error.message) {
@@ -467,24 +413,15 @@ const forms = {
     }
 };
 
-// Botones de acción
 const buttons = {
     init() {
-        // Botón Solicitar Demo (navbar)
         const btnSolicitarDemo = document.getElementById('btnSolicitarDemo');
         if (btnSolicitarDemo) {
             btnSolicitarDemo.addEventListener('click', () => {
-                const contactoSection = document.getElementById('contacto');
-                if (contactoSection) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = contactoSection.offsetTop - headerHeight;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    menu.toggle(false);
-                }
+                this.scrollToSection('demo');
             });
         }
         
-        // Botón Contactar WhatsApp (navbar)
         const btnContactoWhatsApp = document.getElementById('btnContactoWhatsApp');
         if (btnContactoWhatsApp) {
             btnContactoWhatsApp.addEventListener('click', () => {
@@ -492,8 +429,48 @@ const buttons = {
             });
         }
         
+        const btnHeroDemo = document.getElementById('btnHeroDemo');
+        if (btnHeroDemo) {
+            btnHeroDemo.addEventListener('click', () => {
+                this.scrollToSection('demo');
+            });
+        }
         
-        // Botones de WhatsApp en footer
+        const btnHeroVerDemo = document.getElementById('btnHeroVerDemo');
+        if (btnHeroVerDemo) {
+            btnHeroVerDemo.addEventListener('click', () => {
+                alert('Próximamente: Video demo de Contafy');
+            });
+        }
+        
+        const btnDolorCTA = document.getElementById('btnDolorCTA');
+        if (btnDolorCTA) {
+            btnDolorCTA.addEventListener('click', () => {
+                this.scrollToSection('demo');
+            });
+        }
+        
+        const btnTransformacionCTA = document.getElementById('btnTransformacionCTA');
+        if (btnTransformacionCTA) {
+            btnTransformacionCTA.addEventListener('click', () => {
+                this.scrollToSection('demo');
+            });
+        }
+        
+        const btnCTAFinal = document.getElementById('btnCTAFinal');
+        if (btnCTAFinal) {
+            btnCTAFinal.addEventListener('click', () => {
+                this.scrollToSection('demo');
+            });
+        }
+        
+        const btnFAQWhatsApp = document.getElementById('btnFAQWhatsApp');
+        if (btnFAQWhatsApp) {
+            btnFAQWhatsApp.addEventListener('click', () => {
+                whatsapp.openWhatsApp('contacto');
+            });
+        }
+        
         const btnFooterContacto = document.getElementById('btnFooterContacto');
         if (btnFooterContacto) {
             btnFooterContacto.addEventListener('click', () => {
@@ -507,22 +484,47 @@ const buttons = {
                 whatsapp.openWhatsApp('soporte');
             });
         }
+    },
+    
+    scrollToSection(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            const headerHeight = document.querySelector('.header').offsetHeight;
+            const targetPosition = section.offsetTop - headerHeight;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+            menu.toggle(false);
+        }
     }
 };
 
-// Inicialización
+const faq = {
+    init() {
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.style.cursor = 'pointer';
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                if (answer && answer.classList.contains('faq-answer')) {
+                    const isVisible = answer.style.display !== 'none';
+                    answer.style.display = isVisible ? 'none' : 'block';
+                    question.style.color = isVisible ? '' : 'var(--color-primary)';
+                }
+            });
+        });
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     navigation.init();
     menu.init();
     scrollAnimations.init();
     forms.init();
     buttons.init();
+    faq.init();
     
     console.log('Contafy Landing Page - Cargada correctamente');
 });
 
-// Manejo de errores globales
 window.addEventListener('error', (e) => {
     console.error('Error en la aplicación:', e.error);
 });
-
