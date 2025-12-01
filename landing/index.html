@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="">
 
 <head>
     <meta charset="UTF-8">
@@ -33,279 +33,721 @@
     </script>
 
     <title>Contafy - Sistema Contable Inteligente</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preload" href="css/styles.css" as="style">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#ff193e",
+                        secondary: "#e11d48",
+                        dark: "#dc2626",
+                        "background-light": "#f1f5f9",
+                        "background-dark": "#191919",
+                        "text-light": "#1e293b",
+                        "text-dark": "#F7FAFC",
+                        accent: "#ff193e",
+                        whatsapp: "#25d366"
+                    },
+                    fontFamily: {
+                        display: ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                        lg: "0.75rem",
+                        xl: "1rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animaciones personalizadas */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Lazy loading de imágenes */
+        img[loading="lazy"] {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        img[loading="lazy"].loaded {
+            opacity: 1;
+        }
+
+        /* Smooth transitions para tema */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Header/Navbar -->
-    <header class="header" id="header">
-        <nav class="navbar" role="navigation" aria-label="Navegación principal">
-            <div class="container">
-                <div class="navbar-content">
-                    <div class="logo">
-                        <img src="images/logoContafy.png" alt="Contafy Logo" class="logo-img">
-                    </div>
-                    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" id="menuToggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <ul class="nav-menu" id="navMenu">
-                        <li><a href="#caracteristicas" class="nav-link">Características</a></li>
-                        <li><a href="#descripcion" class="nav-link">Descripción</a></li>
-                        <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
-                        <li><a href="#contacto" class="nav-link">Contacto</a></li>
-                    </ul>
-                    <div class="navbar-buttons">
-                        <button class="btn btn-secondary" id="btnSolicitarDemo">Solicitar Demo</button>
-                        <button class="btn btn-whatsapp" id="btnContactoWhatsApp">Contactar WhatsApp</button>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="flex flex-1 justify-center py-5">
+                <div class="layout-content-container flex flex-col w-full max-w-7xl px-4">
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Contafy - Sistema Contable Inteligente</h1>
-                <p class="hero-subtitle">
-                    Automatiza tu contabilidad con procesamiento inteligente de documentos DIAN.
-                    Gestiona empresas, cuentas contables y procesos contables de forma eficiente y precisa.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Características Principales -->
-    <section class="features" id="caracteristicas">
-        <div class="container">
-            <h2 class="section-title">Características Principales</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📄</div>
-                    <h3 class="feature-title">Procesamiento de Documentos DIAN</h3>
-                    <p class="feature-description">Facturas, Notas Crédito y Notas Débito procesadas automáticamente</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏢</div>
-                    <h3 class="feature-title">Gestión de Empresas</h3>
-                    <p class="feature-description">Administra múltiples empresas y cuentas contables desde un solo lugar
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⚙️</div>
-                    <h3 class="feature-title">Procesamiento Automático</h3>
-                    <p class="feature-description">Automatización de ventas y compras sin intervención manual</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔗</div>
-                    <h3 class="feature-title">Integración con Restofy</h3>
-                    <p class="feature-description">Conecta fácilmente con tu sistema Restofy existente</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📋</div>
-                    <h3 class="feature-title">Configuración Flexible</h3>
-                    <p class="feature-description">Configura hasta 10 cuentas en comprobantes contables</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3 class="feature-title">Gestión de Terceros</h3>
-                    <p class="feature-description">Administra clientes, proveedores y terceros de forma centralizada</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3 class="feature-title">Importación desde Excel</h3>
-                    <p class="feature-description">Importa datos masivos desde archivos Excel de forma sencilla</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3 class="feature-title">Dashboard Intuitivo</h3>
-                    <p class="feature-description">Visualiza información clave con gráficos y métricas en tiempo real
-                    </p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📐</div>
-                    <h3 class="feature-title">Modelos Contables</h3>
-                    <p class="feature-description">Genera modelos contables personalizados según tus necesidades</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📦</div>
-                    <h3 class="feature-title">Procesamiento ZIP</h3>
-                    <p class="feature-description">Procesa múltiples archivos comprimidos en formato ZIP</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Descripción del Sistema -->
-    <section class="description" id="descripcion">
-        <div class="container">
-            <h2 class="section-title">Descripción del Sistema</h2>
-            <div class="description-content">
-                <div class="description-item">
-                    <h3 class="description-subtitle">¿Qué es Contafy?</h3>
-                    <p>Contafy es un sistema contable inteligente diseñado para automatizar y optimizar los procesos
-                        contables de tu empresa. Especializado en el procesamiento de documentos DIAN, facilita la
-                        gestión contable de manera eficiente y precisa.</p>
-                </div>
-                <div class="description-item">
-                    <h3 class="description-subtitle">¿Cómo funciona?</h3>
-                    <p>Contafy procesa automáticamente los documentos DIAN (facturas, notas crédito, notas débito), los
-                        clasifica y genera los asientos contables correspondientes. Integra con sistemas externos como
-                        Restofy y permite la importación masiva de datos desde Excel.</p>
-                </div>
-                <div class="description-item">
-                    <h3 class="description-subtitle">¿Para quién está diseñado?</h3>
-                    <p>Contafy está diseñado para empresas que buscan automatizar sus procesos contables, contadores
-                        profesionales que necesitan eficiencia en el procesamiento de documentos, y organizaciones que
-                        manejan grandes volúmenes de transacciones contables.</p>
-                </div>
-                <div class="description-item">
-                    <h3 class="description-subtitle">Beneficios principales</h3>
-                    <p>Reduce significativamente el tiempo de procesamiento contable, elimina errores manuales,
-                        automatiza tareas repetitivas, facilita la integración con otros sistemas y escala según las
-                        necesidades de tu empresa.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Beneficios -->
-    <section class="benefits" id="beneficios">
-        <div class="container">
-            <h2 class="section-title">Beneficios</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">⏱️</div>
-                    <h3 class="benefit-title">Ahorro de Tiempo</h3>
-                    <p class="benefit-description">Reduce el tiempo de procesamiento contable hasta en un 80%</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">✓</div>
-                    <h3 class="benefit-title">Precisión Contable</h3>
-                    <p class="benefit-description">Elimina errores manuales y garantiza precisión en tus registros</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔄</div>
-                    <h3 class="benefit-title">Automatización</h3>
-                    <p class="benefit-description">Automatiza procesos repetitivos y libera tiempo para tareas
-                        estratégicas</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">🔌</div>
-                    <h3 class="benefit-title">Integración Fácil</h3>
-                    <p class="benefit-description">Se integra fácilmente con tus sistemas existentes como Restofy</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📈</div>
-                    <h3 class="benefit-title">Escalable</h3>
-                    <p class="benefit-description">Crece junto con tu empresa, manejando desde pequeñas hasta grandes
-                        operaciones</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formularios -->
-    <section class="forms-section" id="contacto">
-        <div class="container">
-            <h2 class="section-title">Solicita tu Demo Gratuita</h2>
-            <p
-                style="text-align: center; color: var(--color-text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Completa el formulario y te contactaremos para coordinar tu acceso de prueba al sistema Contafy.
-            </p>
-            <div class="forms-grid">
-                <!-- Formulario de Solicitud de Demo -->
-                <div class="form-container" style="max-width: 600px; margin: 0 auto;">
-                    <h3 class="form-title">Solicita tu Acceso de Prueba</h3>
-                    <p
-                        style="text-align: center; color: var(--color-text-secondary); margin-bottom: 1.5rem; font-size: 0.95rem;">
-                        Llena el formulario y nuestro equipo te contactará para coordinar tu acceso de prueba al sistema
-                        Contafy.
-                    </p>
-                    <form class="form" id="demoForm" novalidate>
-                        <div class="form-group">
-                            <label for="demoName" class="form-label">Nombre *</label>
-                            <input type="text" id="demoName" name="name" class="form-input" required
-                                aria-required="true">
-                            <span class="error-message" id="demoNameError"></span>
+                    <!-- Header/Navbar -->
+                    <header
+                        class="flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200 dark:border-b-[#232f48] px-4 sm:px-10 py-4 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm z-50">
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-3">
+                                <img src="images/logoContafy.png" alt="Contafy Logo"
+                                    class="h-12 sm:h-16 w-auto object-contain">
+                                <h2
+                                    class="text-text-light dark:text-white text-xl font-bold leading-tight tracking-tight">
+                                    Contafy</h2>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="demoEmail" class="form-label">Email *</label>
-                            <input type="email" id="demoEmail" name="email" class="form-input" required
-                                aria-required="true">
-                            <span class="error-message" id="demoEmailError"></span>
+
+                        <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
+                            <div class="flex items-center gap-9">
+                                <a class="text-text-light dark:text-white text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                                    href="#caracteristicas">Características</a>
+                                <a class="text-text-light dark:text-white text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                                    href="#descripcion">Descripción</a>
+                                <a class="text-text-light dark:text-white text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                                    href="#beneficios">Beneficios</a>
+                                <a class="text-text-light dark:text-white text-sm font-medium leading-normal hover:text-primary dark:hover:text-primary transition-colors"
+                                    href="#contacto">Contacto</a>
+                            </div>
+
+                            <!-- Toggle de tema -->
+                            <button id="themeToggle"
+                                class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                                aria-label="Cambiar tema">
+                                <span class="material-symbols-outlined text-2xl dark:hidden">dark_mode</span>
+                                <span class="material-symbols-outlined text-2xl hidden dark:inline">light_mode</span>
+                            </button>
+
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
+                                id="btnSolicitarDemo">
+                                <span class="truncate">Solicitar Demo</span>
+                            </button>
+
+                            <button
+                                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-whatsapp text-white text-sm font-bold leading-normal tracking-[0.015em] hover:bg-whatsapp/90 transition-colors"
+                                id="btnContactoWhatsApp">
+                                <span class="truncate">WhatsApp</span>
+                            </button>
                         </div>
-                        <div class="form-group">
-                            <label for="demoCompany" class="form-label">Empresa *</label>
-                            <input type="text" id="demoCompany" name="company" class="form-input" required
-                                aria-required="true">
-                            <span class="error-message" id="demoCompanyError"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="demoMessage" class="form-label">Mensaje</label>
-                            <textarea id="demoMessage" name="message" class="form-input form-textarea"
-                                rows="4"></textarea>
-                            <span class="error-message" id="demoMessageError"></span>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block" id="demoSubmit">
-                            <span class="btn-text">Solicitar Acceso de Prueba</span>
-                            <span class="btn-loader" aria-hidden="true"></span>
+
+                        <!-- Menú móvil -->
+                        <button class="md:hidden text-text-light dark:text-white" id="menuToggle"
+                            aria-label="Abrir menú" aria-expanded="false">
+                            <span class="material-symbols-outlined text-3xl">menu</span>
                         </button>
-                        <p
-                            style="text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); margin-top: 1rem;">
-                            ⏱️ Te responderemos en menos de 24 horas
-                        </p>
-                        <div class="form-message" id="demoMessage"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </header>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="images/logoContafy.png" alt="Contafy Logo" class="footer-logo-img">
-                    </div>
-                    <p class="footer-description">Sistema Contable Inteligente para automatizar tus procesos contables
-                    </p>
+                    <!-- Menú móvil desplegable -->
+                    <nav class="md:hidden fixed top-0 right-0 w-80 max-w-[80%] h-full bg-background-light dark:bg-background-dark border-l border-gray-200 dark:border-[#232f48] transform translate-x-full transition-transform duration-300 z-50"
+                        id="navMenu">
+                        <div class="flex flex-col p-6 gap-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="text-lg font-bold">Menú</h3>
+                                <button class="text-text-light dark:text-white" id="closeMenu">
+                                    <span class="material-symbols-outlined text-3xl">close</span>
+                                </button>
+                            </div>
+                            <a class="text-text-light dark:text-white text-base font-medium py-2 hover:text-primary dark:hover:text-primary transition-colors"
+                                href="#caracteristicas">Características</a>
+                            <a class="text-text-light dark:text-white text-base font-medium py-2 hover:text-primary dark:hover:text-primary transition-colors"
+                                href="#descripcion">Descripción</a>
+                            <a class="text-text-light dark:text-white text-base font-medium py-2 hover:text-primary dark:hover:text-primary transition-colors"
+                                href="#beneficios">Beneficios</a>
+                            <a class="text-text-light dark:text-white text-base font-medium py-2 hover:text-primary dark:hover:text-primary transition-colors"
+                                href="#contacto">Contacto</a>
+                            <button
+                                class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold mt-4"
+                                id="btnSolicitarDemoMobile">Solicitar Demo</button>
+                            <button
+                                class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-whatsapp text-white text-sm font-bold"
+                                id="btnContactoWhatsAppMobile">WhatsApp</button>
+                        </div>
+                    </nav>
+
+                    <!-- Overlay para menú móvil -->
+                    <div class="md:hidden fixed inset-0 bg-black/50 opacity-0 invisible transition-opacity duration-300 z-40"
+                        id="menuOverlay"></div>
+
+                    <main class="flex flex-col gap-16 md:gap-24">
+
+                        <!-- Hero Section -->
+                        <section
+                            class="flex flex-col-reverse lg:flex-row gap-12 px-4 py-16 text-center lg:text-left items-center">
+                            <div class="flex flex-col gap-6 max-w-xl">
+                                <div class="flex flex-col gap-4">
+                                    <h1 class="text-4xl md:text-6xl font-black leading-tight tracking-tighter">
+                                        Contafy - Sistema Contable Inteligente
+                                    </h1>
+                                    <h2 class="text-lg md:text-xl font-normal text-gray-600 dark:text-gray-300">
+                                        Automatiza tu contabilidad con procesamiento inteligente de documentos DIAN.
+                                        Gestiona empresas, cuentas contables y procesos contables de forma eficiente y
+                                        precisa.
+                                    </h2>
+                                </div>
+                                <div class="flex gap-4 justify-center lg:justify-start">
+                                    <a class="flex w-fit min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors"
+                                        href="#contacto">
+                                        <span class="truncate">Solicitar Demo</span>
+                                    </a>
+                                    <button
+                                        class="flex w-fit min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-whatsapp text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-whatsapp/90 transition-colors"
+                                        id="btnHeroWhatsApp">
+                                        <span class="truncate">Contactar WhatsApp</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="w-full max-w-lg lg:max-w-none">
+                                <img class="w-full h-auto rounded-xl object-cover shadow-lg aspect-square lg:aspect-video"
+                                    alt="Dashboard de Contafy - Sistema Contable Inteligente" src="images/hero-main.png"
+                                    loading="eager">
+                            </div>
+                        </section>
+
+                        <!-- Características Principales -->
+                        <section class="flex flex-col gap-10 px-4 py-10" id="caracteristicas">
+                            <div class="flex flex-col gap-6 items-center text-center">
+                                <div class="flex flex-col gap-4 max-w-3xl">
+                                    <h2 class="text-3xl md:text-4xl font-black leading-tight tracking-tighter">
+                                        Características Principales
+                                    </h2>
+                                    <p class="text-base md:text-lg font-normal text-gray-600 dark:text-gray-300">
+                                        Descubre cómo las herramientas inteligentes de Contafy pueden transformar tus
+                                        procesos contables.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Feature 1 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-dian-documents.png"
+                                            alt="Procesamiento de Documentos DIAN"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">📄</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Procesamiento de Documentos DIAN
+                                        </h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Facturas, Notas Crédito y Notas Débito procesadas automáticamente
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 2 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-empresas.png" alt="Gestión de Empresas"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">🏢</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Gestión de Empresas</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Administra múltiples empresas y cuentas contables desde un solo lugar
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 3 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-automatizacion.png" alt="Procesamiento Automático"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">⚙️</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Procesamiento Automático</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Automatización de ventas y compras sin intervención manual
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 4 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-integracion.png" alt="Integración con Restofy"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">🔗</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Integración con Restofy</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Conecta fácilmente con tu sistema Restofy existente
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 5 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-configuracion.png" alt="Configuración Flexible"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">📋</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Configuración Flexible</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Configura hasta 10 cuentas en comprobantes contables
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 6 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-terceros.png" alt="Gestión de Terceros"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">👥</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Gestión de Terceros</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Administra clientes, proveedores y terceros de forma centralizada
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 7 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-excel.png" alt="Importación desde Excel"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">📊</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Importación desde Excel</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Importa datos masivos desde archivos Excel de forma sencilla
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 8 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-dashboard.png" alt="Dashboard Intuitivo"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">📈</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Dashboard Intuitivo</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Visualiza información clave con gráficos y métricas en tiempo real
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 9 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-modelos.png" alt="Modelos Contables"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">📐</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Modelos Contables</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Genera modelos contables personalizados según tus necesidades
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Feature 10 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 hover:shadow-lg transition-shadow feature-card">
+                                    <div
+                                        class="w-full h-48 mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary to-secondary">
+                                        <img src="images/feature-zip.png" alt="Procesamiento ZIP"
+                                            class="w-full h-full object-cover feature-image" loading="lazy">
+                                    </div>
+                                    <div class="text-accent text-4xl mb-2">📦</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold leading-tight">Procesamiento ZIP</h3>
+                                        <p class="text-gray-600 dark:text-[#92a4c9] text-sm font-normal leading-normal">
+                                            Procesa múltiples archivos comprimidos en formato ZIP
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Descripción del Sistema -->
+                        <section class="flex flex-col gap-12 px-4 py-10" id="descripcion">
+                            <div class="flex flex-col gap-6 items-center text-center">
+                                <div class="flex flex-col gap-4 max-w-3xl">
+                                    <h2 class="text-3xl md:text-4xl font-black leading-tight tracking-tighter">
+                                        Descripción del Sistema
+                                    </h2>
+                                    <p class="text-base md:text-lg font-normal text-gray-600 dark:text-gray-300">
+                                        Conoce más sobre Contafy y cómo puede transformar tu gestión contable.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <!-- Descripción 1 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 description-item">
+                                    <div
+                                        class="w-full h-48 rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                                        <img src="images/descripcion-que-es.png" alt="¿Qué es Contafy?"
+                                            class="w-full h-full object-cover description-image" loading="lazy">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-primary">¿Qué es Contafy?</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                        Contafy es un sistema contable inteligente diseñado para automatizar y optimizar
+                                        los procesos contables de tu empresa. Especializado en el procesamiento de
+                                        documentos DIAN, facilita la gestión contable de manera eficiente y precisa.
+                                    </p>
+                                </div>
+
+                                <!-- Descripción 2 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 description-item">
+                                    <div
+                                        class="w-full h-48 rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                                        <img src="images/descripcion-como-funciona.png" alt="¿Cómo funciona Contafy?"
+                                            class="w-full h-full object-cover description-image" loading="lazy">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-primary">¿Cómo funciona?</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                        Contafy procesa automáticamente los documentos DIAN (facturas, notas crédito,
+                                        notas débito), los clasifica y genera los asientos contables correspondientes.
+                                        Integra con sistemas externos como Restofy y permite la importación masiva de
+                                        datos desde Excel.
+                                    </p>
+                                </div>
+
+                                <!-- Descripción 3 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 description-item">
+                                    <div
+                                        class="w-full h-48 rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                                        <img src="images/descripcion-para-quien.png"
+                                            alt="¿Para quién está diseñado Contafy?"
+                                            class="w-full h-full object-cover description-image" loading="lazy">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-primary">¿Para quién está diseñado?</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                        Contafy está diseñado para empresas que buscan automatizar sus procesos
+                                        contables, contadores profesionales que necesitan eficiencia en el procesamiento
+                                        de documentos, y organizaciones que manejan grandes volúmenes de transacciones
+                                        contables.
+                                    </p>
+                                </div>
+
+                                <!-- Descripción 4 -->
+                                <div
+                                    class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-[#324467] bg-white dark:bg-[#192233] p-6 description-item">
+                                    <div
+                                        class="w-full h-48 rounded-lg overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/20">
+                                        <img src="images/descripcion-beneficios.png"
+                                            alt="Beneficios principales de Contafy"
+                                            class="w-full h-full object-cover description-image" loading="lazy">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-primary">Beneficios principales</h3>
+                                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                        Reduce significativamente el tiempo de procesamiento contable, elimina errores
+                                        manuales, automatiza tareas repetitivas, facilita la integración con otros
+                                        sistemas y escala según las necesidades de tu empresa.
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Beneficios -->
+                        <section class="flex flex-col gap-10 px-4 py-10" id="beneficios">
+                            <div class="flex flex-col gap-4 max-w-3xl mx-auto text-center">
+                                <h2 class="text-3xl md:text-4xl font-black leading-tight tracking-tighter">Beneficios
+                                </h2>
+                                <p class="text-base md:text-lg font-normal text-gray-600 dark:text-gray-300">
+                                    Descubre cómo Contafy puede transformar tu gestión contable y liberar tiempo para lo
+                                    que realmente importa.
+                                </p>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Beneficio 1 -->
+                                <div
+                                    class="flex flex-col items-center text-center gap-4 p-6 rounded-xl bg-gradient-to-br from-primary to-secondary text-white benefit-card">
+                                    <div class="w-full h-40 rounded-lg overflow-hidden bg-white/10 mb-2">
+                                        <img src="images/beneficio-ahorro-tiempo.png" alt="Ahorro de Tiempo"
+                                            class="w-full h-full object-cover benefit-image" loading="lazy">
+                                    </div>
+                                    <div class="text-4xl mb-2">⏱️</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold">Ahorro de Tiempo</h3>
+                                        <p class="text-sm leading-normal opacity-95">
+                                            Reduce el tiempo de procesamiento contable hasta en un 80%
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Beneficio 2 -->
+                                <div
+                                    class="flex flex-col items-center text-center gap-4 p-6 rounded-xl bg-gradient-to-br from-primary to-secondary text-white benefit-card">
+                                    <div class="w-full h-40 rounded-lg overflow-hidden bg-white/10 mb-2">
+                                        <img src="images/beneficio-precision.png" alt="Precisión Contable"
+                                            class="w-full h-full object-cover benefit-image" loading="lazy">
+                                    </div>
+                                    <div class="text-4xl mb-2">✓</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold">Precisión Contable</h3>
+                                        <p class="text-sm leading-normal opacity-95">
+                                            Elimina errores manuales y garantiza precisión en tus registros
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Beneficio 3 -->
+                                <div
+                                    class="flex flex-col items-center text-center gap-4 p-6 rounded-xl bg-gradient-to-br from-primary to-secondary text-white benefit-card">
+                                    <div class="w-full h-40 rounded-lg overflow-hidden bg-white/10 mb-2">
+                                        <img src="images/beneficio-automatizacion.png" alt="Automatización"
+                                            class="w-full h-full object-cover benefit-image" loading="lazy">
+                                    </div>
+                                    <div class="text-4xl mb-2">🔄</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold">Automatización</h3>
+                                        <p class="text-sm leading-normal opacity-95">
+                                            Automatiza procesos repetitivos y libera tiempo para tareas estratégicas
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Beneficio 4 -->
+                                <div
+                                    class="flex flex-col items-center text-center gap-4 p-6 rounded-xl bg-gradient-to-br from-primary to-secondary text-white benefit-card">
+                                    <div class="w-full h-40 rounded-lg overflow-hidden bg-white/10 mb-2">
+                                        <img src="images/beneficio-integracion.png" alt="Integración Fácil"
+                                            class="w-full h-full object-cover benefit-image" loading="lazy">
+                                    </div>
+                                    <div class="text-4xl mb-2">🔌</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold">Integración Fácil</h3>
+                                        <p class="text-sm leading-normal opacity-95">
+                                            Se integra fácilmente con tus sistemas existentes como Restofy
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Beneficio 5 -->
+                                <div
+                                    class="flex flex-col items-center text-center gap-4 p-6 rounded-xl bg-gradient-to-br from-primary to-secondary text-white benefit-card">
+                                    <div class="w-full h-40 rounded-lg overflow-hidden bg-white/10 mb-2">
+                                        <img src="images/beneficio-escalable.png" alt="Escalable"
+                                            class="w-full h-full object-cover benefit-image" loading="lazy">
+                                    </div>
+                                    <div class="text-4xl mb-2">📈</div>
+                                    <div class="flex flex-col gap-2">
+                                        <h3 class="text-xl font-bold">Escalable</h3>
+                                        <p class="text-sm leading-normal opacity-95">
+                                            Crece junto con tu empresa, manejando desde pequeñas hasta grandes
+                                            operaciones
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Formulario de Contacto -->
+                        <section class="px-4 py-16 bg-gray-100 dark:bg-black/20 rounded-xl" id="contacto">
+                            <div class="max-w-4xl mx-auto text-center flex flex-col gap-8">
+                                <div class="flex flex-col gap-4">
+                                    <h2 class="text-3xl md:text-4xl font-black leading-tight tracking-tighter">Solicita
+                                        tu Demo Gratuita</h2>
+                                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-300">
+                                        Completa el formulario y te contactaremos para coordinar tu acceso de prueba al
+                                        sistema Contafy.
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                                    <!-- Imagen del formulario -->
+                                    <div class="hidden lg:block">
+                                        <img src="images/form-demo.png" alt="Solicita tu Demo de Contafy"
+                                            class="w-full h-auto rounded-xl object-cover shadow-lg" loading="lazy">
+                                    </div>
+
+                                    <!-- Formulario -->
+                                    <form class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 text-left" id="demoForm"
+                                        novalidate>
+                                        <div class="sm:col-span-1">
+                                            <label class="block text-sm font-medium mb-1" for="demoName">Nombre
+                                                *</label>
+                                            <input
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-primary focus:border-primary px-4 py-2"
+                                                id="demoName" name="name" placeholder="Tu nombre" type="text" required
+                                                aria-required="true">
+                                            <span class="error-message text-red-500 text-xs mt-1 block min-h-[20px]"
+                                                id="demoNameError"></span>
+                                        </div>
+                                        <div class="sm:col-span-1">
+                                            <label class="block text-sm font-medium mb-1" for="demoEmail">Email
+                                                *</label>
+                                            <input
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-primary focus:border-primary px-4 py-2"
+                                                id="demoEmail" name="email" placeholder="tu@email.com" type="email"
+                                                required aria-required="true">
+                                            <span class="error-message text-red-500 text-xs mt-1 block min-h-[20px]"
+                                                id="demoEmailError"></span>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <label class="block text-sm font-medium mb-1" for="demoCompany">Empresa
+                                                *</label>
+                                            <input
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-primary focus:border-primary px-4 py-2"
+                                                id="demoCompany" name="company" placeholder="Nombre de tu empresa"
+                                                type="text" required aria-required="true">
+                                            <span class="error-message text-red-500 text-xs mt-1 block min-h-[20px]"
+                                                id="demoCompanyError"></span>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <label class="block text-sm font-medium mb-1"
+                                                for="demoMessage">Mensaje</label>
+                                            <textarea
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:ring-primary focus:border-primary px-4 py-2"
+                                                id="demoMessage" name="message"
+                                                placeholder="Cuéntanos sobre tus necesidades..." rows="4"></textarea>
+                                            <span class="error-message text-red-500 text-xs mt-1 block min-h-[20px]"
+                                                id="demoMessageError"></span>
+                                        </div>
+                                        <div class="sm:col-span-2 flex justify-center">
+                                            <button
+                                                class="w-full sm:w-auto flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                                                type="submit" id="demoSubmit">
+                                                <span class="btn-text">Solicitar Acceso de Prueba</span>
+                                                <span
+                                                    class="btn-loader hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin ml-2"
+                                                    aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                        <div class="sm:col-span-2">
+                                            <p class="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
+                                                ⏱️ Te responderemos en menos de 24 horas
+                                            </p>
+                                            <div class="form-message mt-4 p-4 rounded-lg text-center font-medium hidden"
+                                                id="demoFormMessage"></div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </main>
+
+                    <!-- Footer -->
+                    <footer class="px-4 py-12 border-t border-gray-200 dark:border-gray-800 mt-16">
+                        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                            <div class="flex flex-col md:flex-row items-center gap-6">
+                                <div class="flex items-center gap-3">
+                                    <img src="images/logoContafy.png" alt="Contafy Logo"
+                                        class="h-12 w-auto object-contain">
+                                    <h2 class="text-xl font-bold">Contafy</h2>
+                                </div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400 text-center md:text-left">
+                                    Sistema Contable Inteligente para automatizar tus procesos contables
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row gap-6 items-center">
+                                <div class="text-sm text-gray-600 dark:text-gray-400 text-center">
+                                    <p class="font-medium mb-2">Contacto</p>
+                                    <p>Teléfono: +57 301 370 9791</p>
+                                    <p>Email: contacto@contafy.com</p>
+                                    <a href="https://soft-contabilidad-9rwk.vercel.app" target="_blank"
+                                        class="text-primary hover:underline mt-2 inline-block">
+                                        Acceder al Sistema
+                                    </a>
+                                </div>
+
+                                <div class="flex flex-col gap-2">
+                                    <button
+                                        class="flex w-full sm:w-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-whatsapp text-white text-sm font-bold hover:bg-whatsapp/90 transition-colors"
+                                        id="btnFooterContacto">
+                                        Contacto WhatsApp
+                                    </button>
+                                    <button
+                                        class="flex w-full sm:w-auto cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-whatsapp text-white text-sm font-bold hover:bg-whatsapp/90 transition-colors"
+                                        id="btnFooterSoporte">
+                                        Soporte WhatsApp
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800 text-center">
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                &copy; 2025 Contafy. Todos los derechos reservados.
+                            </p>
+                        </div>
+                    </footer>
                 </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Contacto</h4>
-                    <p class="footer-info">Teléfono: +57 301 370 9791</p>
-                    <p class="footer-info">Email: contacto@contafy.com</p>
-                    <a href="https://soft-contabilidad-9rwk.vercel.app" target="_blank" class="footer-link"
-                        style="display: inline-block; margin-top: 0.5rem;">Acceder al Sistema</a>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Accesos Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#caracteristicas" class="footer-link">Características</a></li>
-                        <li><a href="#descripcion" class="footer-link">Descripción</a></li>
-                        <li><a href="#beneficios" class="footer-link">Beneficios</a></li>
-                        <li><a href="#contacto" class="footer-link">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4 class="footer-title">Contáctanos</h4>
-                    <div class="footer-buttons">
-                        <button class="btn btn-whatsapp btn-small" id="btnFooterContacto">Contacto WhatsApp</button>
-                        <button class="btn btn-whatsapp btn-small" id="btnFooterSoporte">Soporte WhatsApp</button>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Contafy. Todos los derechos reservados.</p>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script src="js/main.js"></script>
 </body>

@@ -274,12 +274,30 @@ body {
 .hero {
     padding: var(--spacing-xxl) 0;
     background: linear-gradient(135deg, var(--color-white) 0%, var(--color-background) 100%);
-    text-align: center;
+}
+
+.hero-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
 }
 
 .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
+    text-align: left;
+}
+
+.hero-image {
+    text-align: center;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: fadeInUp 1.2s ease;
 }
 
 .hero-title {
@@ -352,6 +370,8 @@ section {
     transition: all var(--transition-normal);
     opacity: 0;
     transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
 }
 
 .feature-card.visible {
@@ -362,6 +382,29 @@ section {
 .feature-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-lg);
+}
+
+.feature-image-wrapper {
+    width: 100%;
+    height: 180px;
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.feature-card:hover .feature-image {
+    transform: scale(1.1);
 }
 
 .feature-icon {
@@ -407,6 +450,26 @@ section {
     transform: translateY(0);
 }
 
+.description-image-wrapper {
+    width: 100%;
+    height: 200px;
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-background) 0%, var(--color-white) 100%);
+}
+
+.description-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.description-item:hover .description-image {
+    transform: scale(1.05);
+}
+
 .description-subtitle {
     font-size: var(--font-size-h3);
     font-weight: 600;
@@ -439,6 +502,8 @@ section {
     transition: all var(--transition-normal);
     opacity: 0;
     transform: translateY(20px);
+    position: relative;
+    overflow: hidden;
 }
 
 .benefit-card.visible {
@@ -449,6 +514,31 @@ section {
 .benefit-card:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-lg);
+}
+
+.benefit-image-wrapper {
+    width: 100%;
+    height: 150px;
+    margin-bottom: var(--spacing-md);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: transform var(--transition-normal);
+}
+
+.benefit-card:hover .benefit-image {
+    transform: scale(1.1);
+    opacity: 1;
 }
 
 .benefit-icon {
@@ -474,8 +564,22 @@ section {
 
 .forms-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.form-image-wrapper {
+    text-align: center;
+}
+
+.form-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    animation: fadeInUp 1s ease;
 }
 
 .form-container {
@@ -702,6 +806,15 @@ section {
         margin-top: var(--spacing-md);
     }
     
+    .hero-wrapper {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .hero-content {
+        text-align: center;
+    }
+    
     .hero-title {
         font-size: 1.75rem;
     }
@@ -729,6 +842,10 @@ section {
     
     .forms-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .form-image-wrapper {
+        order: -1;
     }
     
     .footer-content {

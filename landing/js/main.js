@@ -52,7 +52,8 @@ const utils = {
         const errorElement = document.getElementById(`${input.id}Error`);
         if (errorElement) {
             errorElement.textContent = message;
-            input.classList.add('error');
+            input.classList.add('border-red-500', 'dark:border-red-500');
+            input.classList.remove('border-gray-300', 'dark:border-gray-600');
         }
     },
     
@@ -61,7 +62,8 @@ const utils = {
         const errorElement = document.getElementById(`${input.id}Error`);
         if (errorElement) {
             errorElement.textContent = '';
-            input.classList.remove('error');
+            input.classList.remove('border-red-500', 'dark:border-red-500');
+            input.classList.add('border-gray-300', 'dark:border-gray-600');
         }
     },
     
@@ -112,6 +114,34 @@ const whatsapp = {
     }
 };
 
+// Tema claro/oscuro
+const theme = {
+    init() {
+        // Verificar preferencia guardada o del sistema
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme) {
+            document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+        } else {
+            document.documentElement.classList.toggle('dark', systemPrefersDark);
+        }
+        
+        // Toggle de tema
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                this.toggle();
+            });
+        }
+    },
+    
+    toggle() {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+};
+
 // Navegación
 const navigation = {
     init() {
@@ -124,7 +154,8 @@ const navigation = {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const header = document.querySelector('header');
+                    const headerHeight = header ? header.offsetHeight : 0;
                     const targetPosition = target.offsetTop - headerHeight;
                     
                     window.scrollTo({
@@ -152,10 +183,10 @@ const navigation = {
     
     // Actualizar estado activo en navegación
     updateActiveState(href) {
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.classList.remove('text-primary', 'dark:text-primary');
             if (link.getAttribute('href') === href) {
-                link.classList.add('active');
+                link.classList.add('text-primary', 'dark:text-primary');
             }
         });
     },
@@ -163,7 +194,8 @@ const navigation = {
     // Actualizar estado activo según scroll
     updateActiveOnScroll() {
         const sections = document.querySelectorAll('section[id]');
-        const headerHeight = document.querySelector('.header').offsetHeight;
+        const header = document.querySelector('header');
+        const headerHeight = header ? header.offsetHeight : 0;
         const scrollPosition = window.scrollY + headerHeight + 100;
         
         sections.forEach(section => {
@@ -172,10 +204,10 @@ const navigation = {
             const sectionId = section.getAttribute('id');
             
             if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.classList.remove('text-primary', 'dark:text-primary');
                     if (link.getAttribute('href') === `#${sectionId}`) {
-                        link.classList.add('active');
+                        link.classList.add('text-primary', 'dark:text-primary');
                     }
                 });
             }
@@ -188,17 +220,31 @@ const menu = {
     init() {
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
         
         if (menuToggle && navMenu) {
             menuToggle.addEventListener('click', () => {
                 this.toggle();
             });
             
-            // Cerrar menú al hacer clic fuera
-            document.addEventListener('click', (e) => {
-                if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+            if (closeMenu) {
+                closeMenu.addEventListener('click', () => {
                     this.toggle(false);
-                }
+                });
+            }
+            
+            if (menuOverlay) {
+                menuOverlay.addEventListener('click', () => {
+                    this.toggle(false);
+                });
+            }
+            
+            // Cerrar menú al hacer clic en enlaces
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    this.toggle(false);
+                });
             });
         }
     },
@@ -206,14 +252,33 @@ const menu = {
     toggle(force) {
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
         
-        if (menuToggle && navMenu) {
-            const isActive = navMenu.classList.contains('active');
+        if (navMenu) {
+            const isActive = !navMenu.classList.contains('translate-x-full');
             const shouldBeActive = force !== undefined ? force : !isActive;
             
-            navMenu.classList.toggle('active', shouldBeActive);
-            menuToggle.setAttribute('aria-expanded', shouldBeActive);
-            document.body.style.overflow = shouldBeActive ? 'hidden' : '';
+            if (shouldBeActive) {
+                navMenu.classList.remove('translate-x-full');
+                if (menuOverlay) {
+                    menuOverlay.classList.remove('opacity-0', 'invisible');
+                    menuOverlay.classList.add('opacity-100', 'visible');
+                }
+                if (menuToggle) {
+                    menuToggle.setAttribute('aria-expanded', 'true');
+                }
+                document.body.style.overflow = 'hidden';
+            } else {
+                navMenu.classList.add('translate-x-full');
+                if (menuOverlay) {
+                    menuOverlay.classList.add('opacity-0', 'invisible');
+                    menuOverlay.classList.remove('opacity-100', 'visible');
+                }
+                if (menuToggle) {
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                }
+                document.body.style.overflow = '';
+            }
         }
     }
 };
@@ -230,7 +295,7 @@ const scrollAnimations = {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.classList.add('animate-fade-in-up');
                     observer.unobserve(entry.target);
                 }
             });
@@ -319,11 +384,20 @@ const forms = {
     
     // Mostrar mensaje de formulario
     showMessage(form, type, message) {
-        const messageElement = form.querySelector('.form-message');
+        const messageElement = document.getElementById('demoFormMessage');
         if (messageElement) {
-            messageElement.className = `form-message ${type}`;
+            // Limpiar clases previas
+            messageElement.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800', 'dark:bg-green-900', 'dark:text-green-200', 'dark:bg-red-900', 'dark:text-red-200');
+            
+            // Agregar clases según el tipo
+            if (type === 'success') {
+                messageElement.classList.add('bg-green-100', 'text-green-800', 'dark:bg-green-900', 'dark:text-green-200');
+            } else {
+                messageElement.classList.add('bg-red-100', 'text-red-800', 'dark:bg-red-900', 'dark:text-red-200');
+            }
+            
             messageElement.textContent = message;
-            messageElement.style.display = 'block';
+            messageElement.classList.remove('hidden');
             
             // Scroll al mensaje
             messageElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -331,7 +405,7 @@ const forms = {
             // Ocultar después de 5 segundos si es éxito
             if (type === 'success') {
                 setTimeout(() => {
-                    messageElement.style.display = 'none';
+                    messageElement.classList.add('hidden');
                 }, 5000);
             }
         }
@@ -399,7 +473,10 @@ const forms = {
             
             this.showMessage(form, 'error', errorMessage);
         } finally {
-            submitButton.classList.remove('loading');
+            const btnLoader = submitButton.querySelector('.btn-loader');
+            const btnText = submitButton.querySelector('.btn-text');
+            if (btnLoader) btnLoader.classList.add('hidden');
+            if (btnText) btnText.style.opacity = '1';
             submitButton.disabled = false;
         }
     },
@@ -420,7 +497,10 @@ const forms = {
         };
         
         // Mostrar loading
-        submitButton.classList.add('loading');
+        const btnLoader = submitButton.querySelector('.btn-loader');
+        const btnText = submitButton.querySelector('.btn-text');
+        if (btnLoader) btnLoader.classList.remove('hidden');
+        if (btnText) btnText.style.opacity = '0.5';
         submitButton.disabled = true;
         
         try {
@@ -461,7 +541,10 @@ const forms = {
             
             this.showMessage(form, 'error', errorMessage);
         } finally {
-            submitButton.classList.remove('loading');
+            const btnLoader = submitButton.querySelector('.btn-loader');
+            const btnText = submitButton.querySelector('.btn-text');
+            if (btnLoader) btnLoader.classList.add('hidden');
+            if (btnText) btnText.style.opacity = '1';
             submitButton.disabled = false;
         }
     }
@@ -472,26 +555,49 @@ const buttons = {
     init() {
         // Botón Solicitar Demo (navbar)
         const btnSolicitarDemo = document.getElementById('btnSolicitarDemo');
+        const btnSolicitarDemoMobile = document.getElementById('btnSolicitarDemoMobile');
+        
+        const scrollToContact = () => {
+            const contactoSection = document.getElementById('contacto');
+            if (contactoSection) {
+                const header = document.querySelector('header');
+                const headerHeight = header ? header.offsetHeight : 0;
+                const targetPosition = contactoSection.offsetTop - headerHeight;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                menu.toggle(false);
+            }
+        };
+        
         if (btnSolicitarDemo) {
-            btnSolicitarDemo.addEventListener('click', () => {
-                const contactoSection = document.getElementById('contacto');
-                if (contactoSection) {
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = contactoSection.offsetTop - headerHeight;
-                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-                    menu.toggle(false);
-                }
-            });
+            btnSolicitarDemo.addEventListener('click', scrollToContact);
+        }
+        
+        if (btnSolicitarDemoMobile) {
+            btnSolicitarDemoMobile.addEventListener('click', scrollToContact);
         }
         
         // Botón Contactar WhatsApp (navbar)
         const btnContactoWhatsApp = document.getElementById('btnContactoWhatsApp');
+        const btnContactoWhatsAppMobile = document.getElementById('btnContactoWhatsAppMobile');
+        const btnHeroWhatsApp = document.getElementById('btnHeroWhatsApp');
+        
         if (btnContactoWhatsApp) {
             btnContactoWhatsApp.addEventListener('click', () => {
                 whatsapp.openWhatsApp('contacto');
             });
         }
         
+        if (btnContactoWhatsAppMobile) {
+            btnContactoWhatsAppMobile.addEventListener('click', () => {
+                whatsapp.openWhatsApp('contacto');
+            });
+        }
+        
+        if (btnHeroWhatsApp) {
+            btnHeroWhatsApp.addEventListener('click', () => {
+                whatsapp.openWhatsApp('contacto');
+            });
+        }
         
         // Botones de WhatsApp en footer
         const btnFooterContacto = document.getElementById('btnFooterContacto');
@@ -512,6 +618,7 @@ const buttons = {
 
 // Inicialización
 document.addEventListener('DOMContentLoaded', () => {
+    theme.init();
     navigation.init();
     menu.init();
     scrollAnimations.init();
